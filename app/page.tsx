@@ -14,16 +14,16 @@ export default function Home() {
   return (
     <main>
       <header className="site-header">
-        <a className="brand" href="#top" aria-label=" 80 Bold Priest home">
+        <a className="brand" href="#top" aria-label="80 Bold Priest home">
           <span className="brand-mark">80</span>
           <span>Bold Priest</span>
         </a>
         <nav aria-label="Main navigation">
           <a href="#course">Course</a>
           <a href="#included">What&apos;s included</a>
-          <button className="login-button" type="button" disabled title="Login will be connected next">
+          <a className="login-button" href="/api/auth/login">
             Log in
-          </button>
+          </a>
         </nav>
       </header>
 
