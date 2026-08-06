@@ -14,7 +14,7 @@ export default function Home() {
   return (
     <main>
       <header className="site-header">
-        <a className="brand" href="#top" aria-label="Bold Priest home">
+        <a className="brand" href="#top" aria-label=" 80 Bold Priest home">
           <span className="brand-mark">80</span>
           <span>Bold Priest</span>
         </a>
@@ -104,7 +104,7 @@ export default function Home() {
       </section>
 
       <footer>
-        <div className="brand"><span className="brand-mark">80</span><span>80 Bold Priest</span></div>
+        <div className="brand"><span className="brand-mark">80</span><span>Bold Priest</span></div>
         <p>Online teaching, made accessible.</p>
         <p>© 2026 80 Bold Priest</p>
       </footer>
