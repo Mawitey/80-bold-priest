@@ -69,7 +69,7 @@ export default function Home() {
         <div className="section-heading">
           <p className="eyebrow">ትምህርትኻ</p>
           <h2>ሓደ ትምህርቲ። ናይ ህይወት ምሉእ ፍቓድ።</h2>
-          <p>ሓንሳብ ግዛእ፡ ናብ መለያኻ እቶ፡ ክትቅጽል ድሉው ምስ ኮንካ ድማ ናብ ትምህርትኻ ተመለስ።</p>
+          <p>ሓንሳብ ግዝኡ፡ ብመእተዊኹም እተዉ፡ ክትቅጽሉ ድሉዋት ምስ ኮንኩም ድማ ናብ ትምህርትኹም ተመለሱ።</p>
         </div>
 
         <article className="lesson-card">
@@ -92,7 +92,7 @@ export default function Home() {
           {[
             ["ውሑስ መእተዊ", "ዝተመዝገቡ ተማሃሮ ጥራይ ነቲ ትምህርቲ ክኸፍትዎ ይኽእሉ።"],
             ["ኣብ ዝኾነ ቦታ ተማሃር", "ብስልክኻ፡ ታብሌትካ ወይ ኮምፒዩተርካ ተኸታተል።"],
-            ["ኣብ ዝደለኻዮ ግዜ ተመለስ", "መለያኻ ፍቓድ ትምህርትኻ ክዝክር እዩ።"],
+            ["ኣብ ዝደለኹሞ ግዜ ተመለሱ", "መእተዊኹም ፍቓድ ትምህርትኹም ክዝክር እዩ።"],
           ].map(([title, text]) => (
             <article className="benefit" key={title}>
               <span className="check"><CheckIcon /></span>

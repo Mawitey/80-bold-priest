@@ -25,7 +25,7 @@ export default async function Dashboard() {
         <section className="account-card">
           <p className="eyebrow">መቆጻጸሪ ገጽ ተማሃራይ</p>
           <h1>እንቋዕ ብደሓን መጻእኩም።</h1>
-          <p>መለያኹም ብትኽክል ይሰርሕ ኣሎ። ምርግጋጽ ክፍሊት Stripe ምስ ተወድአ፡ ፍቓድ ትምህርቲ ኣብዚ ክርአ እዩ።</p>
+          <p>መእተዊኹም ብትኽክል ይሰርሕ ኣሎ። ምርግጋጽ ክፍሊት Stripe ምስ ተወድአ፡ ፍቓድ ትምህርቲ ኣብዚ ክርአ እዩ።</p>
           <span className="account-email">{email}</span>
           <div className="account-actions"><a className="primary-button" href="/#course">ትምህርቲ ርአ</a></div>
         </section>
