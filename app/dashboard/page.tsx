@@ -14,20 +14,20 @@ export default async function Dashboard() {
       issuer: config.issuer,
       audience: config.clientId,
     });
-    const email = typeof payload.email === "string" ? payload.email : "Signed-in student";
+    const email = typeof payload.email === "string" ? payload.email : "ዝኣተወ ተማሃራይ";
 
     return (
       <main className="account-page">
         <header className="account-header">
-          <a className="brand" href="/"><span className="brand-mark">80</span><span>Bold Priest</span></a>
-          <a className="secondary-button" href="/api/auth/logout">Log out</a>
+          <a className="brand" href="/"><span className="brand-mark">80</span><span>ተባዕ ካህን</span></a>
+          <a className="secondary-button" href="/api/auth/logout">ውጻእ</a>
         </header>
         <section className="account-card">
-          <p className="eyebrow">STUDENT DASHBOARD</p>
-          <h1>Welcome.</h1>
-          <p>Your customer account is working. Course access will appear here after the Stripe payment-verification step is connected.</p>
+          <p className="eyebrow">መቆጻጸሪ ገጽ ተማሃራይ</p>
+          <h1>እንቋዕ ብደሓን መጻእኩም።</h1>
+          <p>መለያኹም ብትኽክል ይሰርሕ ኣሎ። ምርግጋጽ ክፍሊት Stripe ምስ ተወድአ፡ ፍቓድ ትምህርቲ ኣብዚ ክርአ እዩ።</p>
           <span className="account-email">{email}</span>
-          <div className="account-actions"><a className="primary-button" href="/#course">View course</a></div>
+          <div className="account-actions"><a className="primary-button" href="/#course">ትምህርቲ ርአ</a></div>
         </section>
       </main>
     );

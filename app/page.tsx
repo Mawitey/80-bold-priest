@@ -14,15 +14,15 @@ export default function Home() {
   return (
     <main>
       <header className="site-header">
-        <a className="brand" href="#top" aria-label="80 Bold Priest home">
+        <a className="brand" href="#top" aria-label="መበገሲ ገጽ 80 ተባዕ ካህን">
           <span className="brand-mark">80</span>
-          <span>Bold Priest</span>
+          <span>ተባዕ ካህን</span>
         </a>
-        <nav aria-label="Main navigation">
-          <a href="#course">Course</a>
-          <a href="#included">What&apos;s included</a>
+        <nav aria-label="ቀንዲ መምርሒ">
+          <a href="#course">ትምህርቲ</a>
+          <a href="#included">እንታይ የጠቓልል</a>
           <a className="login-button" href="/api/auth/login">
-            Log in
+            እቶ
           </a>
         </nav>
       </header>
@@ -31,34 +31,34 @@ export default function Home() {
         <div className="hero-glow hero-glow-blue" />
         <div className="hero-glow hero-glow-orange" />
         <div className="hero-copy">
-          <p className="eyebrow">80 BOLD PRIEST • ONLINE LEARNING</p>
+          <p className="eyebrow">80 ተባዕ ካህን • ትምህርቲ ብኢንተርነት</p>
           <h1 lang="ti">ክብሪ ኣምላኽ <span>(1ይ ክፋል)</span></h1>
-          <p className="intro">A focused video teaching you can watch at your own pace, from any device.</p>
+          <p className="intro">ካብ ዝደለኻዮ መሳርሒ፡ ብናትካ ፍጥነት ክትከታተሎ እትኽእል ዝተዳለወ ትምህርቲ ቪድዮ።</p>
           <div className="hero-meta">
-            <span>1 video lesson</span>
+            <span>1 ትምህርቲ ቪድዮ</span>
             <span className="dot" />
-            <span>59 minutes</span>
+            <span>59 ደቓይቕ</span>
             <span className="dot" />
             <span>720p HD</span>
           </div>
           <div className="purchase-row">
-            <div className="price"><small>One-time payment</small><strong>$500</strong></div>
+            <div className="price"><small>ሓንሳብ ጥራይ ዝኽፈል</small><strong>$500</strong></div>
             <a
               className="primary-button"
               href="https://buy.stripe.com/test_dRmcN550ubc5eLM1nG7bW00"
               target="_blank"
               rel="noreferrer"
-              aria-label="Open the Stripe test checkout for this course"
+              aria-label="ናይዚ ትምህርቲ ናይ ፈተና ክፍሊት ክፈት"
             >
-              Test enrollment
+              ንፈተና ተመዝገብ
             </a>
           </div>
-          <p className="setup-note">Test checkout only — no real payment will be collected. Student login will be connected before launch.</p>
+          <p className="setup-note">እዚ ናይ ፈተና ክፍሊት ጥራይ እዩ — ናይ ሓቂ ገንዘብ ኣይክፈልን።</p>
         </div>
 
-        <div className="course-visual" aria-label="80 Bold Priest course artwork">
+        <div className="course-visual" aria-label="ስእሊ ትምህርቲ 80 ተባዕ ካህን">
           <div className="logo-frame">
-            <img src="/bold-priest-logo.png" alt="80 Bold Priest logo with blue water and orange fire" />
+            <img src="/bold-priest-logo.png" alt="ኣርማ 80 ተባዕ ካህን" />
           </div>
           <div className="play-badge"><PlayIcon /></div>
           <span className="duration">59:26</span>
@@ -67,32 +67,32 @@ export default function Home() {
 
       <section className="course-section" id="course">
         <div className="section-heading">
-          <p className="eyebrow">YOUR COURSE</p>
-          <h2>One lesson. Lifetime access.</h2>
-          <p>Purchase once, sign in, and return to your lesson whenever you&apos;re ready to continue.</p>
+          <p className="eyebrow">ትምህርትኻ</p>
+          <h2>ሓደ ትምህርቲ። ናይ ህይወት ምሉእ ፍቓድ።</h2>
+          <p>ሓንሳብ ግዛእ፡ ናብ መለያኻ እቶ፡ ክትቅጽል ድሉው ምስ ኮንካ ድማ ናብ ትምህርትኻ ተመለስ።</p>
         </div>
 
         <article className="lesson-card">
           <div className="lesson-number">01</div>
           <div className="lesson-info">
-            <span>Video lesson</span>
+            <span>ትምህርቲ ቪድዮ</span>
             <h3 lang="ti">ክብሪ ኣምላኽ (1ይ ክፋል)</h3>
           </div>
           <div className="lesson-duration">59:26</div>
-          <div className="locked">Locked until purchase</div>
+          <div className="locked">ክሳዕ ዝግዛእ ዕጹው እዩ</div>
         </article>
       </section>
 
       <section className="included-section" id="included">
         <div>
-          <p className="eyebrow">SIMPLE & SECURE</p>
-          <h2>Everything you need to learn comfortably.</h2>
+          <p className="eyebrow">ቀሊልን ውሑስን</p>
+          <h2>ብምቾት ንምምሃር ዘድልየካ ኩሉ።</h2>
         </div>
         <div className="benefit-grid">
           {[
-            ["Protected access", "Only enrolled students will be able to open the lesson."],
-            ["Learn anywhere", "Watch on your phone, tablet, or computer."],
-            ["Return anytime", "Your account will remember your course access."],
+            ["ውሑስ መእተዊ", "ዝተመዝገቡ ተማሃሮ ጥራይ ነቲ ትምህርቲ ክኸፍትዎ ይኽእሉ።"],
+            ["ኣብ ዝኾነ ቦታ ተማሃር", "ብስልክኻ፡ ታብሌትካ ወይ ኮምፒዩተርካ ተኸታተል።"],
+            ["ኣብ ዝደለኻዮ ግዜ ተመለስ", "መለያኻ ፍቓድ ትምህርትኻ ክዝክር እዩ።"],
           ].map(([title, text]) => (
             <article className="benefit" key={title}>
               <span className="check"><CheckIcon /></span>
@@ -104,9 +104,9 @@ export default function Home() {
       </section>
 
       <footer>
-        <div className="brand"><span className="brand-mark">80</span><span>Bold Priest</span></div>
-        <p>Online teaching, made accessible.</p>
-        <p>© 2026 80 Bold Priest</p>
+        <div className="brand"><span className="brand-mark">80</span><span>ተባዕ ካህን</span></div>
+        <p>ትምህርቲ ብኢንተርነት፡ ንኹሉ ቀሊል።</p>
+        <p>© 2026 80 ተባዕ ካህን</p>
       </footer>
     </main>
   );

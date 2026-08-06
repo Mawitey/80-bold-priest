@@ -2,8 +2,8 @@ import type { Metadata } from "next";
 import "./globals.css";
 
 export const metadata: Metadata = {
-  title: "80 Bold Priest | Online Learning",
-  description: "80 Bold Priest online video teaching and protected course access.",
+  title: "80 ተባዕ ካህን | ትምህርቲ ብኢንተርነት",
+  description: "ትምህርቲ ቪድዮ 80 ተባዕ ካህንን ውሑስ መእተዊ ትምህርትን።",
 };
 
 export default function RootLayout({
@@ -12,7 +12,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
+    <html lang="ti">
       <body>{children}</body>
     </html>
   );
