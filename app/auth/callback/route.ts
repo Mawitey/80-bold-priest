@@ -4,6 +4,7 @@ import { cognitoEndpoint, getCognitoConfig } from "@/lib/cognito";
 
 export async function GET(request: NextRequest) {
   const config = getCognitoConfig();
+  const siteUrl = new URL(config.logoutUri);
   const code = request.nextUrl.searchParams.get("code");
   const state = request.nextUrl.searchParams.get("state");
   const error = request.nextUrl.searchParams.get("error");
@@ -12,7 +13,7 @@ export async function GET(request: NextRequest) {
   const verifier = cookieStore.get("bp_pkce_verifier")?.value;
 
   if (error || !code || !state || state !== expectedState || !verifier) {
-    return NextResponse.redirect(new URL("/auth/error", request.url));
+    return NextResponse.redirect(new URL("/auth/error", siteUrl));
   }
 
   const tokenResponse = await fetch(cognitoEndpoint(config.domain, "/oauth2/token"), {
@@ -32,7 +33,7 @@ export async function GET(request: NextRequest) {
   });
 
   if (!tokenResponse.ok) {
-    return NextResponse.redirect(new URL("/auth/error", request.url));
+    return NextResponse.redirect(new URL("/auth/error", siteUrl));
   }
 
   const tokens = (await tokenResponse.json()) as {
@@ -41,7 +42,7 @@ export async function GET(request: NextRequest) {
     refresh_token?: string;
     expires_in?: number;
   };
-  const response = NextResponse.redirect(new URL("/dashboard", request.url));
+  const response = NextResponse.redirect(new URL("/dashboard", siteUrl));
   const tokenOptions = { httpOnly: true, secure: true, sameSite: "lax" as const, path: "/", maxAge: tokens.expires_in ?? 3600 };
   response.cookies.set("bp_id_token", tokens.id_token, tokenOptions);
   response.cookies.set("bp_access_token", tokens.access_token, tokenOptions);
