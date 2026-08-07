@@ -22,6 +22,7 @@ export async function GET() {
   authorizeUrl.searchParams.set("code_challenge_method", "S256");
 
   const response = NextResponse.redirect(authorizeUrl);
+  response.headers.set("Cache-Control", "no-store, max-age=0");
   const cookieOptions = { httpOnly: true, secure: true, sameSite: "lax" as const, maxAge: 600, path: "/" };
   response.cookies.set("bp_oauth_state", state, cookieOptions);
   response.cookies.set("bp_pkce_verifier", verifier, cookieOptions);

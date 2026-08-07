@@ -5,6 +5,12 @@ import { cognitoEndpoint, getCognitoConfig } from "@/lib/cognito";
 export async function GET(request: NextRequest) {
   const config = getCognitoConfig();
   const siteUrl = new URL(config.logoutUri);
+  const authError = (reason: string) => {
+    console.error("Auth callback failed", { reason });
+    const errorUrl = new URL("/auth/error", siteUrl);
+    errorUrl.searchParams.set("reason", reason);
+    return NextResponse.redirect(errorUrl);
+  };
   const code = request.nextUrl.searchParams.get("code");
   const state = request.nextUrl.searchParams.get("state");
   const error = request.nextUrl.searchParams.get("error");
@@ -12,9 +18,12 @@ export async function GET(request: NextRequest) {
   const expectedState = cookieStore.get("bp_oauth_state")?.value;
   const verifier = cookieStore.get("bp_pkce_verifier")?.value;
 
-  if (error || !code || !state || state !== expectedState || !verifier) {
-    return NextResponse.redirect(new URL("/auth/error", siteUrl));
-  }
+  if (error) return authError("provider_error");
+  if (!code) return authError("missing_code");
+  if (!state) return authError("missing_state");
+  if (!expectedState) return authError("missing_state_cookie");
+  if (state !== expectedState) return authError("state_mismatch");
+  if (!verifier) return authError("missing_pkce_cookie");
 
   const tokenResponse = await fetch(cognitoEndpoint(config.domain, "/oauth2/token"), {
     method: "POST",
@@ -32,11 +41,16 @@ export async function GET(request: NextRequest) {
     cache: "no-store",
   });
 
+  const tokenPayload = await tokenResponse.text();
   if (!tokenResponse.ok) {
-    return NextResponse.redirect(new URL("/auth/error", siteUrl));
+    console.error("Cognito token exchange failed", {
+      status: tokenResponse.status,
+      response: tokenPayload.slice(0, 300),
+    });
+    return authError("token_exchange_failed");
   }
 
-  const tokens = (await tokenResponse.json()) as {
+  const tokens = JSON.parse(tokenPayload) as {
     id_token: string;
     access_token: string;
     refresh_token?: string;
