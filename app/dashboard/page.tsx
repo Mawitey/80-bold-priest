@@ -82,7 +82,23 @@ export default async function Dashboard() {
         </section>
       </main>
     );
-  } catch {
-    redirect("/api/auth/login");
+  } catch (error) {
+    console.error("Dashboard load failed", error);
+    return (
+      <main className="account-page">
+        <header className="account-header">
+          <a className="brand" href="/"><span className="brand-mark">80</span><span>ተባዕ ካህን</span></a>
+          <a className="secondary-button" href="/api/auth/logout">ውጻእ</a>
+        </header>
+        <section className="account-card error-card">
+          <p className="eyebrow">ግዝያዊ ጸገም</p>
+          <h1>ትምህርቲ ክጽዕን ኣይከኣለን።</h1>
+          <p>መእተዊኹም ተቐቢልናዮ ኣለና፣ ግን ፍቓድ ትምህርቲ ሕጂ ክረጋገጽ ኣይከኣለን።</p>
+          <div className="account-actions">
+            <a className="secondary-button" href="/api/auth/logout">ውጻእ እሞ ደጊምኩም ፈትኑ</a>
+          </div>
+        </section>
+      </main>
+    );
   }
 }
