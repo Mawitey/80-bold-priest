@@ -32,10 +32,10 @@ export default function Home() {
         <div className="hero-glow hero-glow-orange" />
         <div className="hero-copy">
           <p className="eyebrow">80 ተባዕ ካህን • ትምህርቲ ብኢንተርነት</p>
-          <h1 lang="ti">ክብሪ ኣምላኽ <span>Kibri Amlak</span></h1>
+          <h1>80 Bold Priest <span>Video Library</span></h1>
           <p className="intro">ካብ ዝደለኻዮ መሳርሒ፡ ብናትካ ፍጥነት ክትከታተሎ እትኽእል ዝተዳለወ ትምህርቲ ቪድዮ።</p>
           <div className="hero-meta">
-            <span>9 ትምህርቲ ቪድዮ</span>
+            <span>4 Categories</span>
             <span className="dot" />
             <span>59 ደቓይቕ</span>
             <span className="dot" />
