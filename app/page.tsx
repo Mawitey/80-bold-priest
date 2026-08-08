@@ -15,6 +15,8 @@ const CheckIcon = () => (
   </svg>
 );
 
+const kibriAmlakParts = [1, 2, 3, 4, 5, 9, 10, 11, 12];
+
 export default function Home() {
   const { language } = useLanguage();
   const [menuOpen, setMenuOpen] = useState(false);
@@ -152,14 +154,22 @@ export default function Home() {
           <p>{t.returnText}</p>
         </div>
 
-        <article className="lesson-card">
-          <div className="lesson-number">01</div>
-          <div className="lesson-info">
-            <span>{t.videoLesson}</span>
-            <h3>{t.lessonTitle}</h3>
-          </div>
-          <div className="locked">{t.locked}</div>
-        </article>
+        <div className="public-category-heading">
+          <span>{language === "ti" ? "ምድብ" : "Category"}</span>
+          <h3>{language === "ti" ? "ክብሪ ኣምላኽ" : "Kibri Amlak"}</h3>
+        </div>
+        <div className="lesson-list">
+          {kibriAmlakParts.map((part) => (
+            <article className="lesson-card" key={part}>
+              <div className="lesson-number">{String(part).padStart(2, "0")}</div>
+              <div className="lesson-info">
+                <span>{t.videoLesson}</span>
+                <h3>{language === "ti" ? `ክብሪ ኣምላኽ (${part}ይ ክፋል)` : `Glory of God (Part ${part})`}</h3>
+              </div>
+              <div className="locked">{t.locked}</div>
+            </article>
+          ))}
+        </div>
       </section>
 
       <section className="included-section" id="included">

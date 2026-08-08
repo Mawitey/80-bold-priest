@@ -60,7 +60,11 @@ h1 span { display: block; margin-top: 10px; color: transparent; -webkit-text-str
 .section-heading .eyebrow, .included-section .eyebrow { color: #d65a08; }
 h2 { margin: 0; font-size: clamp(38px, 5vw, 62px); line-height: 1.08; letter-spacing: -.035em; }
 .section-heading > p:last-child { color: #5c6672; font-size: 18px; line-height: 1.7; }
-.lesson-card { margin-top: 52px; padding: 28px; display: grid; grid-template-columns: 74px 1fr auto; align-items: center; gap: 24px; border-radius: 22px; background: #fff; box-shadow: 0 18px 50px rgba(22,31,43,.08); }
+.public-category-heading { margin-top: 52px; }
+.public-category-heading > span { color: #d65a08; font-size: 12px; font-weight: 800; letter-spacing: .14em; text-transform: uppercase; }
+.public-category-heading h3 { margin: 8px 0 0; font-family: "Noto Serif Ethiopic", Georgia, serif; font-size: 30px; }
+.lesson-list { display: grid; gap: 14px; margin-top: 22px; }
+.lesson-card { padding: 28px; display: grid; grid-template-columns: 74px 1fr auto; align-items: center; gap: 24px; border-radius: 22px; background: #fff; box-shadow: 0 18px 50px rgba(22,31,43,.08); }
 .lesson-number { color: #cbd2da; font-size: 32px; font-weight: 800; }
 .lesson-info span { color: #7b8794; font-size: 12px; text-transform: uppercase; letter-spacing: .12em; }
 .lesson-info h3 { margin: 7px 0 0; font-family: "Noto Serif Ethiopic", Georgia, serif; font-size: 24px; }
