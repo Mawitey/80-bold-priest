@@ -26,7 +26,6 @@ export function cognitoEndpoint(domain: string, path: string) {
 export function getCourseConfig() {
   const config = {
     courseApiUrl: process.env.COURSE_API_URL,
-    muxPlaybackId: process.env.MUX_PLAYBACK_ID,
     muxSigningKeyId: process.env.MUX_SIGNING_KEY_ID,
     muxSigningPrivateKey: process.env.MUX_SIGNING_PRIVATE_KEY,
   };

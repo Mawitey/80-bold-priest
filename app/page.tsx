@@ -32,10 +32,10 @@ export default function Home() {
         <div className="hero-glow hero-glow-orange" />
         <div className="hero-copy">
           <p className="eyebrow">80 ተባዕ ካህን • ትምህርቲ ብኢንተርነት</p>
-          <h1 lang="ti">ክብሪ ኣምላኽ <span>(1ይ ክፋል)</span></h1>
+          <h1 lang="ti">ክብሪ ኣምላኽ <span>Kibri Amlak</span></h1>
           <p className="intro">ካብ ዝደለኻዮ መሳርሒ፡ ብናትካ ፍጥነት ክትከታተሎ እትኽእል ዝተዳለወ ትምህርቲ ቪድዮ።</p>
           <div className="hero-meta">
-            <span>1 ትምህርቲ ቪድዮ</span>
+            <span>9 ትምህርቲ ቪድዮ</span>
             <span className="dot" />
             <span>59 ደቓይቕ</span>
             <span className="dot" />
@@ -68,7 +68,7 @@ export default function Home() {
       <section className="course-section" id="course">
         <div className="section-heading">
           <p className="eyebrow">ትምህርትኻ</p>
-          <h2>ሓደ ትምህርቲ። ናይ ህይወት ምሉእ ፍቓድ።</h2>
+          <h2>9 ትምህርቲ። ናይ ህይወት ምሉእ ፍቓድ።</h2>
           <p>ሓንሳብ ግዝኡ፡ ብመእተዊኹም እተዉ፡ ክትቅጽሉ ድሉዋት ምስ ኮንኩም ድማ ናብ ትምህርትኹም ተመለሱ።</p>
         </div>
 

@@ -7,11 +7,15 @@ export default function ProtectedMuxPlayer({
   playbackToken,
   thumbnailToken,
   storyboardToken,
+  videoTitle,
+  videoPart,
 }: {
   playbackId: string;
   playbackToken: string;
   thumbnailToken: string;
   storyboardToken: string;
+  videoTitle: string;
+  videoPart: number;
 }) {
   return (
     <MuxPlayer
@@ -22,8 +26,8 @@ export default function ProtectedMuxPlayer({
         storyboard: storyboardToken,
       }}
       metadata={{
-        video_id: "glory-of-god-part-1",
-        video_title: "ክብሪ ኣምላኽ (1ይ ክፋል)",
+        video_id: `kibri-amlak-part-${videoPart}`,
+        video_title: videoTitle,
       }}
       accentColor="#ff8a1f"
     />

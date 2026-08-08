@@ -3,7 +3,8 @@ import { redirect } from "next/navigation";
 import { createPrivateKey } from "node:crypto";
 import { createRemoteJWKSet, jwtVerify, SignJWT } from "jose";
 import { getCognitoConfig, getCourseConfig } from "@/lib/cognito";
-import ProtectedMuxPlayer from "./ProtectedMuxPlayer";
+import { courseCategories } from "@/lib/courses";
+import CourseLibrary, { type ProtectedLesson } from "./CourseLibrary";
 
 function muxPrivateKey(value: string) {
   const normalized = value.replace(/\\n/g, "\n").trim();
@@ -39,23 +40,27 @@ export default async function Dashboard() {
     if (!accessResponse.ok) throw new Error("Course access service unavailable");
 
     const access = (await accessResponse.json()) as { hasAccess?: boolean };
-    let muxTokens: { playback: string; thumbnail: string; storyboard: string } | null = null;
+    let protectedLessons: ProtectedLesson[] | null = null;
 
     if (access.hasAccess) {
       const signingKey = createPrivateKey(muxPrivateKey(course.muxSigningPrivateKey));
-      const signMuxToken = (audience: "v" | "t" | "s") =>
-        new SignJWT({ sub: course.muxPlaybackId, aud: audience })
+      const signMuxToken = (playbackId: string, audience: "v" | "t" | "s") =>
+        new SignJWT({ sub: playbackId, aud: audience })
           .setProtectedHeader({ alg: "RS256", kid: course.muxSigningKeyId })
           .setIssuedAt()
-          .setExpirationTime("15m")
+          .setExpirationTime("6h")
           .sign(signingKey);
 
-      const [playback, thumbnail, storyboard] = await Promise.all([
-        signMuxToken("v"),
-        signMuxToken("t"),
-        signMuxToken("s"),
-      ]);
-      muxTokens = { playback, thumbnail, storyboard };
+      protectedLessons = await Promise.all(
+        courseCategories[0].lessons.map(async (lesson) => {
+          const [playbackToken, thumbnailToken, storyboardToken] = await Promise.all([
+            signMuxToken(lesson.playbackId, "v"),
+            signMuxToken(lesson.playbackId, "t"),
+            signMuxToken(lesson.playbackId, "s"),
+          ]);
+          return { ...lesson, playbackToken, thumbnailToken, storyboardToken };
+        }),
+      );
     }
 
     return (
@@ -69,15 +74,12 @@ export default async function Dashboard() {
           <h1>እንቋዕ ብደሓን መጻእኩም።</h1>
           <p>{access.hasAccess ? "ክፍሊትኩም ተረጋጊጹ እዩ። ትምህርትኹም ኣብ ታሕቲ ክትከታተሉ ትኽእሉ።" : "ነዚ ትምህርቲ ንምርኣይ መጀመርታ ክፍሊት ወድኡ። ኣብ Stripeን ኣብ መእተዊኹምን ሓደ ኢመይል ተጠቐሙ።"}</p>
           <span className="account-email">{email}</span>
-          {muxTokens ? (
-            <div className="protected-video">
-              <ProtectedMuxPlayer
-                playbackId={course.muxPlaybackId}
-                playbackToken={muxTokens.playback}
-                thumbnailToken={muxTokens.thumbnail}
-                storyboardToken={muxTokens.storyboard}
-              />
-            </div>
+          {protectedLessons ? (
+            <CourseLibrary
+              categoryName={courseCategories[0].name}
+              categoryTitle={courseCategories[0].title}
+              lessons={protectedLessons}
+            />
           ) : (
             <div className="account-actions">
               <a className="primary-button" href="/#course">ክፍሊት ወድእ</a>
