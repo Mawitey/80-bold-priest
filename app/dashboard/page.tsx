@@ -41,7 +41,12 @@ export default async function Dashboard() {
     if (!accessResponse.ok) throw new Error("Course access service unavailable");
 
     const access = (await accessResponse.json()) as { hasAccess?: boolean };
-    let protectedLessons: ProtectedLesson[] | null = null;
+    let protectedCategories: Array<{
+      id: string;
+      name: string;
+      title: string;
+      lessons: ProtectedLesson[];
+    }> | null = null;
 
     if (access.hasAccess) {
       const signingKey = createPrivateKey(muxPrivateKey(course.muxSigningPrivateKey));
@@ -52,15 +57,20 @@ export default async function Dashboard() {
           .setExpirationTime("6h")
           .sign(signingKey);
 
-      protectedLessons = await Promise.all(
-        courseCategories[0].lessons.map(async (lesson) => {
-          const [playbackToken, thumbnailToken, storyboardToken] = await Promise.all([
-            signMuxToken(lesson.playbackId, "v"),
-            signMuxToken(lesson.playbackId, "t"),
-            signMuxToken(lesson.playbackId, "s"),
-          ]);
-          return { ...lesson, playbackToken, thumbnailToken, storyboardToken };
-        }),
+      protectedCategories = await Promise.all(
+        courseCategories.map(async (category) => ({
+          ...category,
+          lessons: await Promise.all(
+            category.lessons.map(async (lesson) => {
+              const [playbackToken, thumbnailToken, storyboardToken] = await Promise.all([
+                signMuxToken(lesson.playbackId, "v"),
+                signMuxToken(lesson.playbackId, "t"),
+                signMuxToken(lesson.playbackId, "s"),
+              ]);
+              return { ...lesson, playbackToken, thumbnailToken, storyboardToken };
+            }),
+          ),
+        })),
       );
     }
 
@@ -75,12 +85,17 @@ export default async function Dashboard() {
           <h1><LocalizedText ti="እንቋዕ ብደሓን መጻእኩም።" en="Welcome back." /></h1>
           <p>{access.hasAccess ? <LocalizedText ti="ክፍሊትኩም ተረጋጊጹ እዩ። ትምህርትኹም ኣብ ታሕቲ ክትከታተሉ ትኽእሉ።" en="Your payment is confirmed. You can watch your lessons below." /> : <LocalizedText ti="ነዚ ትምህርቲ ንምርኣይ መጀመርታ ክፍሊት ወድኡ። ኣብ Stripeን ኣብ መእተዊኹምን ሓደ ኢመይል ተጠቐሙ።" en="Complete payment first to watch these lessons. Use the same email for payment and login." />}</p>
           <span className="account-email">{email}</span>
-          {protectedLessons ? (
-            <CourseLibrary
-              categoryName={courseCategories[0].name}
-              categoryTitle={courseCategories[0].title}
-              lessons={protectedLessons}
-            />
+          {protectedCategories ? (
+            <div className="protected-categories">
+              {protectedCategories.map((category) => (
+                <CourseLibrary
+                  key={category.id}
+                  categoryName={category.name}
+                  categoryTitle={category.title}
+                  lessons={category.lessons}
+                />
+              ))}
+            </div>
           ) : (
             <div className="account-actions">
               <a className="primary-button" href="/#course"><LocalizedText ti="ክፍሊት ወድእ" en="Complete payment" /></a>

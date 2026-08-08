@@ -61,6 +61,7 @@ h1 span { display: block; margin-top: 10px; color: transparent; -webkit-text-str
 h2 { margin: 0; font-size: clamp(38px, 5vw, 62px); line-height: 1.08; letter-spacing: -.035em; }
 .section-heading > p:last-child { color: #5c6672; font-size: 18px; line-height: 1.7; }
 .public-category-heading { margin-top: 52px; }
+.public-category + .public-category { margin-top: 74px; padding-top: 2px; border-top: 1px solid #dce2e8; }
 .public-category-heading > span { color: #d65a08; font-size: 12px; font-weight: 800; letter-spacing: .14em; text-transform: uppercase; }
 .public-category-heading h3 { margin: 8px 0 0; font-family: "Noto Serif Ethiopic", Georgia, serif; font-size: 30px; }
 .lesson-list { display: grid; gap: 14px; margin-top: 22px; }

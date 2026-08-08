@@ -15,7 +15,10 @@ const CheckIcon = () => (
   </svg>
 );
 
-const kibriAmlakParts = [1, 2, 3, 4, 5, 9, 10, 11, 12];
+const publicCategories = [
+  { name: "Kibri Amlak", title: "ክብሪ ኣምላኽ", lessonEn: "Glory of God", parts: [1, 2, 3, 4, 5, 9, 10, 11, 12] },
+  { name: "Rai", title: "ራእይ", lessonEn: "Rai", parts: [1, 2, 3, 4, 5, 6, 7] },
+];
 
 export default function Home() {
   const { language } = useLanguage();
@@ -38,7 +41,7 @@ export default function Home() {
     enroll: "ንፈተና ተመዝገብ",
     testNote: "እዚ ናይ ፈተና ክፍሊት ጥራይ እዩ — ናይ ሓቂ ገንዘብ ኣይክፈልን።",
     yourCourse: "ትምህርትኻ",
-    lifetime: "9 ትምህርቲ። ናይ ህይወት ምሉእ ፍቓድ።",
+    lifetime: "ብዙሕ ትምህርቲ ቪድዮ። ናይ ህይወት ምሉእ ፍቓድ።",
     returnText: "ሓንሳብ ግዝኡ፡ ብመእተዊኹም እተዉ፡ ክትቅጽሉ ድሉዋት ምስ ኮንኩም ድማ ናብ ትምህርትኹም ተመለሱ።",
     videoLesson: "ትምህርቲ ቪድዮ",
     lessonTitle: "ክብሪ ኣምላኽ (1ይ ክፋል)",
@@ -69,7 +72,7 @@ export default function Home() {
     enroll: "Test enrollment",
     testNote: "This is a test payment only—no real money will be charged.",
     yourCourse: "Your course",
-    lifetime: "9 video lessons. Lifetime access.",
+    lifetime: "Multiple video lessons. Lifetime access.",
     returnText: "Purchase once, sign in securely, and return to your lessons whenever you are ready.",
     videoLesson: "Video lesson",
     lessonTitle: "Glory of God (Part 1)",
@@ -154,22 +157,26 @@ export default function Home() {
           <p>{t.returnText}</p>
         </div>
 
-        <div className="public-category-heading">
-          <span>{language === "ti" ? "ምድብ" : "Category"}</span>
-          <h3>{language === "ti" ? "ክብሪ ኣምላኽ" : "Kibri Amlak"}</h3>
-        </div>
-        <div className="lesson-list">
-          {kibriAmlakParts.map((part) => (
-            <article className="lesson-card" key={part}>
-              <div className="lesson-number">{String(part).padStart(2, "0")}</div>
-              <div className="lesson-info">
-                <span>{t.videoLesson}</span>
-                <h3>{language === "ti" ? `ክብሪ ኣምላኽ (${part}ይ ክፋል)` : `Glory of God (Part ${part})`}</h3>
-              </div>
-              <div className="locked">{t.locked}</div>
-            </article>
-          ))}
-        </div>
+        {publicCategories.map((category) => (
+          <section className="public-category" key={category.name}>
+            <div className="public-category-heading">
+              <span>{language === "ti" ? "ምድብ" : "Category"}</span>
+              <h3>{language === "ti" ? category.title : category.name}</h3>
+            </div>
+            <div className="lesson-list">
+              {category.parts.map((part) => (
+                <article className="lesson-card" key={part}>
+                  <div className="lesson-number">{String(part).padStart(2, "0")}</div>
+                  <div className="lesson-info">
+                    <span>{t.videoLesson}</span>
+                    <h3>{language === "ti" ? `${category.title} (${part}ይ ክፋል)` : `${category.lessonEn} (Part ${part})`}</h3>
+                  </div>
+                  <div className="locked">{t.locked}</div>
+                </article>
+              ))}
+            </div>
+          </section>
+        ))}
       </section>
 
       <section className="included-section" id="included">

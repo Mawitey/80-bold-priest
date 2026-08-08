@@ -7,6 +7,7 @@ import ProtectedMuxPlayer from "./ProtectedMuxPlayer";
 export type ProtectedLesson = {
   part: number;
   title: string;
+  titleEn: string;
   playbackId: string;
   playbackToken: string;
   thumbnailToken: string;
@@ -48,7 +49,7 @@ export default function CourseLibrary({
         />
       </div>
 
-      <h3 className="now-playing">{language === "ti" ? selectedLesson.title : `Glory of God (Part ${selectedLesson.part})`}</h3>
+      <h3 className="now-playing">{language === "ti" ? selectedLesson.title : selectedLesson.titleEn}</h3>
       <div className="dashboard-lessons" aria-label={`${categoryName} lessons`}>
         {lessons.map((lesson) => (
           <button
@@ -58,7 +59,7 @@ export default function CourseLibrary({
             type="button"
           >
             <span>{String(lesson.part).padStart(2, "0")}</span>
-            <strong>{language === "ti" ? lesson.title : `Glory of God (Part ${lesson.part})`}</strong>
+            <strong>{language === "ti" ? lesson.title : lesson.titleEn}</strong>
             <small>{lesson.part === selectedLesson.part ? (language === "ti" ? "ሕጂ ይጻወት" : "Now playing") : (language === "ti" ? "ክፈት" : "Open")}</small>
           </button>
         ))}
