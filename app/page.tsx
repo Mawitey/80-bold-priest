@@ -1,6 +1,7 @@
 "use client";
 
 import { LanguageSwitcher, useLanguage } from "./LanguageProvider";
+import { useState } from "react";
 
 const PlayIcon = () => (
   <svg viewBox="0 0 24 24" aria-hidden="true">
@@ -16,11 +17,14 @@ const CheckIcon = () => (
 
 export default function Home() {
   const { language } = useLanguage();
+  const [menuOpen, setMenuOpen] = useState(false);
   const t = language === "ti" ? {
     brand: "ተባዕ ካህን",
     courses: "ትምህርቲ",
     included: "እንታይ የጠቓልል",
     login: "እቶ",
+    menu: "ዝርዝር",
+    close: "ዕጾ",
     eyebrow: "80 ተባዕ ካህን • ትምህርቲ ብኢንተርነት",
     title: "80 ተባዕ ካህን",
     subtitle: "ቤተ መጻሕፍቲ ቪድዮ",
@@ -50,6 +54,8 @@ export default function Home() {
     courses: "Courses",
     included: "What is included",
     login: "Log in",
+    menu: "Menu",
+    close: "Close",
     eyebrow: "80 Bold Priest • Online learning",
     title: "80 Bold Priest",
     subtitle: "Video Library",
@@ -83,9 +89,18 @@ export default function Home() {
           <span className="brand-mark">80</span>
           <span>{t.brand}</span>
         </a>
-        <nav aria-label="ቀንዲ መምርሒ">
-          <a href="#course">{t.courses}</a>
-          <a href="#included">{t.included}</a>
+        <button
+          className="menu-button"
+          type="button"
+          aria-expanded={menuOpen}
+          aria-controls="main-navigation"
+          onClick={() => setMenuOpen((open) => !open)}
+        >
+          {menuOpen ? t.close : t.menu}
+        </button>
+        <nav id="main-navigation" className={menuOpen ? "mobile-open" : ""} aria-label="ቀንዲ መምርሒ">
+          <a href="#course" onClick={() => setMenuOpen(false)}>{t.courses}</a>
+          <a href="#included" onClick={() => setMenuOpen(false)}>{t.included}</a>
           <LanguageSwitcher />
           <a className="login-button" href="/api/auth/login">
             {t.login}
