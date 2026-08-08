@@ -16,8 +16,10 @@ const CheckIcon = () => (
 );
 
 const publicCategories = [
-  { name: "Kibri Amlak", title: "ክብሪ ኣምላኽ", lessonEn: "Glory of God", parts: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12] },
-  { name: "Rai", title: "ራእይ", lessonEn: "Rai", parts: [1, 2, 3, 4, 5, 6, 7] },
+  { name: "Glory of God", title: "ክብሪ ኣምላኽ", lessonEn: "Glory of God", parts: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12] },
+  { name: "Vision", title: "ራእይ", lessonEn: "Vision", parts: [1, 2, 3, 4, 5, 6, 7] },
+  { name: "Law of the Spirit of Life", title: "ሕጊ መንፈስ ሂወት", lessonEn: "Law of the Spirit of Life", parts: [1, 2, 3, 4, 5, 6, 8, 9] },
+  { name: "Power of God", title: "ሓይሊ ኣምላኽ", lessonEn: "Power of God", parts: [3, 4, 5, 6, 7, 8, 9, 10, 12, 13] },
 ];
 
 export default function Home() {

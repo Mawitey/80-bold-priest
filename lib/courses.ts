@@ -15,7 +15,7 @@ export type CourseCategory = {
 export const courseCategories: CourseCategory[] = [
   {
     id: "kibri-amlak",
-    name: "Kibri Amlak",
+    name: "Glory of God",
     title: "ክብሪ ኣምላኽ",
     lessons: [
       { part: 1, title: "ክብሪ ኣምላኽ (1ይ ክፋል)", titleEn: "Glory of God (Part 1)", playbackId: "SZpD02hev8ELcAP88601poFPDVprdYpvLvic8Q8S69iro" },
@@ -34,21 +34,21 @@ export const courseCategories: CourseCategory[] = [
   },
   {
     id: "rai",
-    name: "Rai",
+    name: "Vision",
     title: "ራእይ",
     lessons: [
-      { part: 1, title: "ራእይ (1ይ ክፋል)", titleEn: "Rai (Part 1)", playbackId: "cj6FlRwHcuY9cnnH6V9wmndFmw6yA7iLv1SdKsCT01tU" },
-      { part: 2, title: "ራእይ (2ይ ክፋል)", titleEn: "Rai (Part 2)", playbackId: "vrlZjlCxsX3jps7Jtwxvs00G9Glo1duexVwAmL8tcztQ" },
-      { part: 3, title: "ራእይ (3ይ ክፋል)", titleEn: "Rai (Part 3)", playbackId: "LilkRkKhmQNS2qONobztoDgT8a5nWsparkmExQRifgg" },
-      { part: 4, title: "ራእይ (4ይ ክፋል)", titleEn: "Rai (Part 4)", playbackId: "noJUase49pmpPTAARXxJjmJKvZ4NiEEjPaPHIHsyZhI" },
-      { part: 5, title: "ራእይ (5ይ ክፋል)", titleEn: "Rai (Part 5)", playbackId: "6yDC7ucnR4R82nZsaagdwpxgWx7umW7CJA1g00SzTuF00" },
-      { part: 6, title: "ራእይ (6ይ ክፋል)", titleEn: "Rai (Part 6)", playbackId: "Ozqb94EBddJYjY7kJNtxE3LbpHa4jCYNvRjPyFuwTGY" },
-      { part: 7, title: "ራእይ (7ይ ክፋል)", titleEn: "Rai (Part 7)", playbackId: "Xx3xMx3rJQnfibPJ5bH0100LW7e00HcAoLupPSQrdrm32w" },
+      { part: 1, title: "ራእይ (1ይ ክፋል)", titleEn: "Vision (Part 1)", playbackId: "cj6FlRwHcuY9cnnH6V9wmndFmw6yA7iLv1SdKsCT01tU" },
+      { part: 2, title: "ራእይ (2ይ ክፋል)", titleEn: "Vision (Part 2)", playbackId: "vrlZjlCxsX3jps7Jtwxvs00G9Glo1duexVwAmL8tcztQ" },
+      { part: 3, title: "ራእይ (3ይ ክፋል)", titleEn: "Vision (Part 3)", playbackId: "LilkRkKhmQNS2qONobztoDgT8a5nWsparkmExQRifgg" },
+      { part: 4, title: "ራእይ (4ይ ክፋል)", titleEn: "Vision (Part 4)", playbackId: "noJUase49pmpPTAARXxJjmJKvZ4NiEEjPaPHIHsyZhI" },
+      { part: 5, title: "ራእይ (5ይ ክፋል)", titleEn: "Vision (Part 5)", playbackId: "6yDC7ucnR4R82nZsaagdwpxgWx7umW7CJA1g00SzTuF00" },
+      { part: 6, title: "ራእይ (6ይ ክፋል)", titleEn: "Vision (Part 6)", playbackId: "Ozqb94EBddJYjY7kJNtxE3LbpHa4jCYNvRjPyFuwTGY" },
+      { part: 7, title: "ራእይ (7ይ ክፋል)", titleEn: "Vision (Part 7)", playbackId: "Xx3xMx3rJQnfibPJ5bH0100LW7e00HcAoLupPSQrdrm32w" },
     ],
   },
   {
     id: "hgi-menfes-hiwet",
-    name: "Hgi Menfes Hiwet",
+    name: "Law of the Spirit of Life",
     title: "ሕጊ መንፈስ ሂወት",
     lessons: [
       { part: 1, title: "ሕጊ መንፈስ ሂወት — መእተዊን 1ይ ክፋልን", titleEn: "Law of the Spirit of Life — Introduction and Part 1", playbackId: "ItK32eHXp1trBCpXt21pTl2VlAvwj4h02sdZyGOjR6WI" },
@@ -63,7 +63,7 @@ export const courseCategories: CourseCategory[] = [
   },
   {
     id: "hayli-amlak",
-    name: "Hayli Amlak",
+    name: "Power of God",
     title: "ሓይሊ ኣምላኽ",
     lessons: [
       { part: 3, title: "ሓይሊ ኣምላኽ (3ይ ክፋል)", titleEn: "Power of God (Part 3)", playbackId: "rIAuXWq7oLbDeq2ig4v02QuWTJb02hrg5AaqCLE8mDIO4" },
