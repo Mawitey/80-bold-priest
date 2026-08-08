@@ -83,7 +83,7 @@ export default async function Dashboard() {
         <section className="account-card">
           <p className="eyebrow"><LocalizedText ti="መቆጻጸሪ ገጽ ተማሃራይ" en="Student dashboard" /></p>
           <h1><LocalizedText ti="እንቋዕ ብደሓን መጻእኩም።" en="Welcome back." /></h1>
-          <p>{access.hasAccess ? <LocalizedText ti="ክፍሊትኩም ተረጋጊጹ እዩ። ትምህርትኹም ኣብ ታሕቲ ክትከታተሉ ትኽእሉ።" en="Your payment is confirmed. You can watch your lessons below." /> : <LocalizedText ti="ነዚ ትምህርቲ ንምርኣይ መጀመርታ ክፍሊት ወድኡ። ኣብ Stripeን ኣብ መእተዊኹምን ሓደ ኢመይል ተጠቐሙ።" en="Complete payment first to watch these lessons. Use the same email for payment and login." />}</p>
+          <p>{access.hasAccess ? <LocalizedText ti="ክፍሊትኩም ተረጋጊጹ እዩ። ትምህርትኹም ኣብ ታሕቲ ክትከታተሉ ትኽእሉ።" en="Your payment is confirmed. You can watch your lessons below." /> : <LocalizedText ti="ነዚ ትምህርቲ ንምርኣይ መጀመርታ ውሑስ ክፍሊት ወድኡ። ንክፍሊትን ንመእተዊኹምን ሓደ ኢመይል ተጠቐሙ።" en="Complete the secure payment first to watch these lessons. Use the same email for payment and login." />}</p>
           <span className="account-email">{email}</span>
           {protectedCategories ? (
             <div className="protected-categories">
