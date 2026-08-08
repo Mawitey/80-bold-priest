@@ -26,7 +26,7 @@ export default function Home() {
     subtitle: "ቤተ መጻሕፍቲ ቪድዮ",
     intro: "ካብ ዝደለኻዮ መሳርሒ፡ ብናትካ ፍጥነት ክትከታተሎ እትኽእል ዝተዳለወ ትምህርቲ ቪድዮ።",
     categories: "4 ምድባት",
-    minutes: "59 ደቓይቕ",
+    lessons: "ትምህርቲ ቪድዮ",
     quality: "720p ልዑል ጽሬት",
     once: "ሓንሳብ ጥራይ ዝኽፈል",
     enroll: "ንፈተና ተመዝገብ",
@@ -55,7 +55,7 @@ export default function Home() {
     subtitle: "Video Library",
     intro: "Video teaching you can watch on any device, at your own pace, wherever you are.",
     categories: "4 categories",
-    minutes: "59 minutes",
+    lessons: "Video lessons",
     quality: "720p HD",
     once: "One-time payment",
     enroll: "Test enrollment",
@@ -103,7 +103,7 @@ export default function Home() {
           <div className="hero-meta">
             <span>{t.categories}</span>
             <span className="dot" />
-            <span>{t.minutes}</span>
+            <span>{t.lessons}</span>
             <span className="dot" />
             <span>{t.quality}</span>
           </div>
@@ -127,7 +127,6 @@ export default function Home() {
             <img src="/bold-priest-logo.png" alt="ኣርማ 80 ተባዕ ካህን" />
           </div>
           <div className="play-badge"><PlayIcon /></div>
-          <span className="duration">59:26</span>
         </div>
       </section>
 
@@ -144,7 +143,6 @@ export default function Home() {
             <span>{t.videoLesson}</span>
             <h3>{t.lessonTitle}</h3>
           </div>
-          <div className="lesson-duration">59:26</div>
           <div className="locked">{t.locked}</div>
         </article>
       </section>
