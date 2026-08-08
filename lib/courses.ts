@@ -17,7 +17,7 @@ export const courseCategories: CourseCategory[] = [
     name: "Kibri Amlak",
     title: "ክብሪ ኣምላኽ",
     lessons: [
-      { part: 1, title: "ክብሪ ኣምላኽ (1ይ ክፋል)", playbackId: "dqXpVCnzweRGcOSssoWXw00LcU1E00avIbaLk9WaDRV02Y" },
+      { part: 1, title: "ክብሪ ኣምላኽ (1ይ ክፋል)", playbackId: "SZpD02hev8ELcAP88601poFPDVprdYpvLvic8Q8S69iro" },
       { part: 2, title: "ክብሪ ኣምላኽ (2ይ ክፋል)", playbackId: "02dtmR1CRL2Z8UbHa025H00aAIYVWX6W8pb7Bi4JrfPWL4" },
       { part: 3, title: "ክብሪ ኣምላኽ (3ይ ክፋል)", playbackId: "c006bdb6GP7IHt1L7zEWZASx1H7epXbE43KPkCUjrWSw" },
       { part: 4, title: "ክብሪ ኣምላኽ (4ይ ክፋል)", playbackId: "x5T9EEYEfNCLgQMFW00rqD5mZawIX3Z9RvNgdr3bGTh8" },
