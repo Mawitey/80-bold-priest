@@ -57,6 +57,7 @@ export const courseCategories: CourseCategory[] = [
       { part: 4, title: "ሕጊ መንፈስ ሂወት (4ይ ክፋል)", titleEn: "Law of the Spirit of Life (Part 4)", playbackId: "MBEidyqlj6cWPJ01uRWeMJthKk7vNbys3WZwLjo2ZFhs" },
       { part: 5, title: "ሕጊ መንፈስ ሂወት (5ይ ክፋል)", titleEn: "Law of the Spirit of Life (Part 5)", playbackId: "HVP1NslVzcB8Q1ruu21fcYQi00XOp68Gf4MkmJp7yaMA" },
       { part: 6, title: "ሕጊ መንፈስ ሂወት (6ይ ክፋል)", titleEn: "Law of the Spirit of Life (Part 6)", playbackId: "AysZhVq9evno01PDxHECxyTg2Mz8UAgCZcUdW01I5eTBY" },
+      { part: 7, title: "ሕጊ መንፈስ ሂወት (7ይ ክፋል)", titleEn: "Law of the Spirit of Life (Part 7)", playbackId: "UU9w0101Zo4wLgEdC1I8KdOUqvKiemTltLF4ljcZFI1Gw" },
       { part: 8, title: "ሕጊ መንፈስ ሂወት (8ይ ክፋል)", titleEn: "Law of the Spirit of Life (Part 8)", playbackId: "ac3y4SgGS4OnRyESM1l3yibTSu1HiSpO3r01142CzWXE" },
       { part: 9, title: "ሕጊ መንፈስ ሂወት (9ይ ክፋል)", titleEn: "Law of the Spirit of Life (Part 9)", playbackId: "KwOGbycwSvcj9l7doWHkuyF2hdDFDBNEsp1IL7UBdGU" },
     ],
