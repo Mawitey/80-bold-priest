@@ -67,6 +67,8 @@ export const courseCategories: CourseCategory[] = [
     name: "Power of God",
     title: "ሓይሊ ኣምላኽ",
     lessons: [
+      { part: 1, title: "ሓይሊ ኣምላኽ (1ይ ክፋል)", titleEn: "Power of God (Part 1)", playbackId: "01svuIn4EqNGfLwzDNkgA8XoRbuPaFhvSh3Y6Lz702zc8" },
+      { part: 2, title: "ሓይሊ ኣምላኽ (2ይ ክፋል)", titleEn: "Power of God (Part 2)", playbackId: "zwGNa88rYvw3oD2vQPG81CCPWD4V3igZ5m55HLHkaN4" },
       { part: 3, title: "ሓይሊ ኣምላኽ (3ይ ክፋል)", titleEn: "Power of God (Part 3)", playbackId: "rIAuXWq7oLbDeq2ig4v02QuWTJb02hrg5AaqCLE8mDIO4" },
       { part: 4, title: "ሓይሊ ኣምላኽ (4ይ ክፋል)", titleEn: "Power of God (Part 4)", playbackId: "Bs302ZQsGmnaEPFWje3tHS01I7C4za2gqOLybuLAVRnvo" },
       { part: 5, title: "ሓይሊ ኣምላኽ (5ይ ክፋል)", titleEn: "Power of God (Part 5)", playbackId: "KycTj7uXmLbf18EChphemvKDlRtyXJxrGOs01Dz3dQI00" },
@@ -75,6 +77,7 @@ export const courseCategories: CourseCategory[] = [
       { part: 8, title: "ሓይሊ ኣምላኽ (8ይ ክፋል)", titleEn: "Power of God (Part 8)", playbackId: "lymR8Yt01PlZbQ5jhTEDVNRuqPjsi99vpVBEgCXLPhxE" },
       { part: 9, title: "ሓይሊ ኣምላኽ (9ይ ክፋል)", titleEn: "Power of God (Part 9)", playbackId: "sYl60201hbq6dRGrVX01tXrgP9pRRihdc3tUL00023WsqL2o" },
       { part: 10, title: "ሓይሊ ኣምላኽ (10ይ ክፋል)", titleEn: "Power of God (Part 10)", playbackId: "OTKED015ZJzgMDbj7uDiS01iEFZBuYAU9o7VZ00TluZRik" },
+      { part: 11, title: "ሓይሊ ኣምላኽ (11ይ ክፋል)", titleEn: "Power of God (Part 11)", playbackId: "DGStIvclVd7JdaM8IkH300IqGrvUL2wCQsUw6p2k7QfA" },
       { part: 12, title: "ሓይሊ ኣምላኽ (12ይ ክፋል)", titleEn: "Power of God (Part 12)", playbackId: "BnquDFgJzkmBRHk9w9MKecTRahg28xEM7VY4OuhdBXE" },
       { part: 13, title: "ሓይሊ ኣምላኽ (13ይ ክፋል)", titleEn: "Power of God (Part 13)", playbackId: "s9bWDkNMLxV01AMDe6YYmKdeHkJHntyYVXvvWZV802usw" },
     ],
