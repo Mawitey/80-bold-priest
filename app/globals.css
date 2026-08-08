@@ -24,6 +24,9 @@ nav { display: flex; align-items: center; gap: 34px; color: #d3dae2; font-size: 
 nav a:hover { color: #fff; }
 .login-button { padding: 11px 21px; color: #dfe7f0; border: 1px solid rgba(255,255,255,.18); border-radius: 999px; background: rgba(255,255,255,.04); transition: border-color .18s ease, background .18s ease; }
 .login-button:hover { border-color: rgba(67,168,255,.7); background: rgba(67,168,255,.1); }
+.language-switcher { display: inline-flex; padding: 3px; border: 1px solid rgba(255,255,255,.16); border-radius: 999px; background: rgba(255,255,255,.04); }
+.language-switcher button { min-width: 42px; padding: 7px 10px; color: #aab5c1; border: 0; border-radius: 999px; background: transparent; font-size: 12px; font-weight: 800; cursor: pointer; }
+.language-switcher button.active { color: #111820; background: #fff; }
 
 .hero { min-height: calc(100vh - 82px); padding: 72px clamp(24px, 6vw, 88px); display: grid; grid-template-columns: minmax(0, 1fr) minmax(380px, .82fr); align-items: center; gap: clamp(50px, 7vw, 110px); position: relative; overflow: hidden; background: radial-gradient(circle at 50% 110%, rgba(255,117,24,.08), transparent 42%), var(--ink); }
 .hero-glow { position: absolute; width: 380px; height: 380px; border-radius: 50%; filter: blur(100px); opacity: .13; pointer-events: none; }
@@ -78,6 +81,7 @@ footer .brand { color: #dce3ea; }
 
 .account-page { min-height: 100vh; padding: 40px clamp(24px, 7vw, 96px); background: radial-gradient(circle at 85% 15%, rgba(67,168,255,.13), transparent 35%), var(--ink); }
 .account-header { display: flex; align-items: center; justify-content: space-between; gap: 24px; }
+.account-nav { display: flex; align-items: center; gap: 12px; }
 .account-card { max-width: 850px; margin: 12vh auto 0; padding: clamp(28px, 5vw, 58px); border: 1px solid rgba(255,255,255,.09); border-radius: 28px; background: rgba(17,23,32,.92); box-shadow: 0 30px 90px rgba(0,0,0,.42); }
 .account-card h1 { font-family: Inter, ui-sans-serif, system-ui, sans-serif; font-size: clamp(38px, 6vw, 68px); }
 .account-card p { max-width: 620px; color: var(--muted); font-size: 17px; line-height: 1.7; }

@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import { useLanguage } from "../LanguageProvider";
 import ProtectedMuxPlayer from "./ProtectedMuxPlayer";
 
 export type ProtectedLesson = {
@@ -21,6 +22,7 @@ export default function CourseLibrary({
   categoryTitle: string;
   lessons: ProtectedLesson[];
 }) {
+  const { language } = useLanguage();
   const [selectedPart, setSelectedPart] = useState(lessons[0]?.part);
   const selectedLesson = lessons.find((lesson) => lesson.part === selectedPart) ?? lessons[0];
 
@@ -29,9 +31,9 @@ export default function CourseLibrary({
   return (
     <section className="course-library">
       <div className="category-heading">
-        <p className="category-label">Category: {categoryName}</p>
-        <h2 lang="ti">{categoryTitle}</h2>
-        <p>{lessons.length} ትምህርቲ ቪድዮ</p>
+        <p className="category-label">{language === "ti" ? "ምድብ" : "Category"}</p>
+        <h2>{language === "ti" ? categoryTitle : categoryName}</h2>
+        <p>{language === "ti" ? `${lessons.length} ትምህርቲ ቪድዮ` : `${lessons.length} video lessons`}</p>
       </div>
 
       <div className="protected-video">
@@ -46,7 +48,7 @@ export default function CourseLibrary({
         />
       </div>
 
-      <h3 className="now-playing" lang="ti">{selectedLesson.title}</h3>
+      <h3 className="now-playing">{language === "ti" ? selectedLesson.title : `Glory of God (Part ${selectedLesson.part})`}</h3>
       <div className="dashboard-lessons" aria-label={`${categoryName} lessons`}>
         {lessons.map((lesson) => (
           <button
@@ -56,8 +58,8 @@ export default function CourseLibrary({
             type="button"
           >
             <span>{String(lesson.part).padStart(2, "0")}</span>
-            <strong lang="ti">{lesson.title}</strong>
-            <small>{lesson.part === selectedLesson.part ? "ሕጂ ይጻወት" : "ክፈት"}</small>
+            <strong>{language === "ti" ? lesson.title : `Glory of God (Part ${lesson.part})`}</strong>
+            <small>{lesson.part === selectedLesson.part ? (language === "ti" ? "ሕጂ ይጻወት" : "Now playing") : (language === "ti" ? "ክፈት" : "Open")}</small>
           </button>
         ))}
       </div>

@@ -1,3 +1,7 @@
+"use client";
+
+import { LanguageSwitcher, useLanguage } from "./LanguageProvider";
+
 const PlayIcon = () => (
   <svg viewBox="0 0 24 24" aria-hidden="true">
     <path d="M8 5.5v13l10-6.5L8 5.5Z" fill="currentColor" />
@@ -11,18 +15,80 @@ const CheckIcon = () => (
 );
 
 export default function Home() {
+  const { language } = useLanguage();
+  const t = language === "ti" ? {
+    brand: "ተባዕ ካህን",
+    courses: "ትምህርቲ",
+    included: "እንታይ የጠቓልል",
+    login: "እቶ",
+    eyebrow: "80 ተባዕ ካህን • ትምህርቲ ብኢንተርነት",
+    title: "80 ተባዕ ካህን",
+    subtitle: "ቤተ መጻሕፍቲ ቪድዮ",
+    intro: "ካብ ዝደለኻዮ መሳርሒ፡ ብናትካ ፍጥነት ክትከታተሎ እትኽእል ዝተዳለወ ትምህርቲ ቪድዮ።",
+    categories: "4 ምድባት",
+    minutes: "59 ደቓይቕ",
+    quality: "720p ልዑል ጽሬት",
+    once: "ሓንሳብ ጥራይ ዝኽፈል",
+    enroll: "ንፈተና ተመዝገብ",
+    testNote: "እዚ ናይ ፈተና ክፍሊት ጥራይ እዩ — ናይ ሓቂ ገንዘብ ኣይክፈልን።",
+    yourCourse: "ትምህርትኻ",
+    lifetime: "9 ትምህርቲ። ናይ ህይወት ምሉእ ፍቓድ።",
+    returnText: "ሓንሳብ ግዝኡ፡ ብመእተዊኹም እተዉ፡ ክትቅጽሉ ድሉዋት ምስ ኮንኩም ድማ ናብ ትምህርትኹም ተመለሱ።",
+    videoLesson: "ትምህርቲ ቪድዮ",
+    lessonTitle: "ክብሪ ኣምላኽ (1ይ ክፋል)",
+    locked: "ክሳዕ ዝግዛእ ዕጹው እዩ",
+    easy: "ቀሊልን ውሑስን",
+    everything: "ብምቾት ንምምሃር ዘድልየካ ኩሉ።",
+    benefits: [
+      ["ውሑስ መእተዊ", "ዝተመዝገቡ ተማሃሮ ጥራይ ነቲ ትምህርቲ ክኸፍትዎ ይኽእሉ።"],
+      ["ኣብ ዝኾነ ቦታ ተማሃር", "ብስልክኻ፡ ታብሌትካ ወይ ኮምፒዩተርካ ተኸታተል።"],
+      ["ኣብ ዝደለኹሞ ግዜ ተመለሱ", "ንትምህርቲ ዘለኩም ፍቓድ ተዓቂቡ ክጸንሕ እዩ።"],
+    ],
+    footer: "ትምህርቲ ብኢንተርነት፡ ንኹሉ ቀሊል።",
+  } : {
+    brand: "Bold Priest",
+    courses: "Courses",
+    included: "What is included",
+    login: "Log in",
+    eyebrow: "80 Bold Priest • Online learning",
+    title: "80 Bold Priest",
+    subtitle: "Video Library",
+    intro: "Video teaching you can watch on any device, at your own pace, wherever you are.",
+    categories: "4 categories",
+    minutes: "59 minutes",
+    quality: "720p HD",
+    once: "One-time payment",
+    enroll: "Test enrollment",
+    testNote: "This is a test payment only—no real money will be charged.",
+    yourCourse: "Your course",
+    lifetime: "9 video lessons. Lifetime access.",
+    returnText: "Purchase once, sign in securely, and return to your lessons whenever you are ready.",
+    videoLesson: "Video lesson",
+    lessonTitle: "Glory of God (Part 1)",
+    locked: "Locked until purchased",
+    easy: "Simple and secure",
+    everything: "Everything you need to learn comfortably.",
+    benefits: [
+      ["Secure access", "Only registered students with course access can open the lessons."],
+      ["Learn anywhere", "Watch on your phone, tablet, or computer."],
+      ["Return anytime", "Your course access remains available when you return."],
+    ],
+    footer: "Online learning made simple for everyone.",
+  };
+
   return (
     <main>
       <header className="site-header">
         <a className="brand" href="#top" aria-label="መበገሲ ገጽ 80 ተባዕ ካህን">
           <span className="brand-mark">80</span>
-          <span>ተባዕ ካህን</span>
+          <span>{t.brand}</span>
         </a>
         <nav aria-label="ቀንዲ መምርሒ">
-          <a href="#course">ትምህርቲ</a>
-          <a href="#included">እንታይ የጠቓልል</a>
+          <a href="#course">{t.courses}</a>
+          <a href="#included">{t.included}</a>
+          <LanguageSwitcher />
           <a className="login-button" href="/api/auth/login">
-            እቶ
+            {t.login}
           </a>
         </nav>
       </header>
@@ -31,18 +97,18 @@ export default function Home() {
         <div className="hero-glow hero-glow-blue" />
         <div className="hero-glow hero-glow-orange" />
         <div className="hero-copy">
-          <p className="eyebrow">80 ተባዕ ካህን • ትምህርቲ ብኢንተርነት</p>
-          <h1>80 Bold Priest <span>Video Library</span></h1>
-          <p className="intro">ካብ ዝደለኻዮ መሳርሒ፡ ብናትካ ፍጥነት ክትከታተሎ እትኽእል ዝተዳለወ ትምህርቲ ቪድዮ።</p>
+          <p className="eyebrow">{t.eyebrow}</p>
+          <h1>{t.title} <span>{t.subtitle}</span></h1>
+          <p className="intro">{t.intro}</p>
           <div className="hero-meta">
-            <span>4 Categories</span>
+            <span>{t.categories}</span>
             <span className="dot" />
-            <span>59 ደቓይቕ</span>
+            <span>{t.minutes}</span>
             <span className="dot" />
-            <span>720p HD</span>
+            <span>{t.quality}</span>
           </div>
           <div className="purchase-row">
-            <div className="price"><small>ሓንሳብ ጥራይ ዝኽፈል</small><strong>$500</strong></div>
+            <div className="price"><small>{t.once}</small><strong>$500</strong></div>
             <a
               className="primary-button"
               href="https://buy.stripe.com/test_dRmcN550ubc5eLM1nG7bW00"
@@ -50,10 +116,10 @@ export default function Home() {
               rel="noreferrer"
               aria-label="ናይዚ ትምህርቲ ናይ ፈተና ክፍሊት ክፈት"
             >
-              ንፈተና ተመዝገብ
+              {t.enroll}
             </a>
           </div>
-          <p className="setup-note">እዚ ናይ ፈተና ክፍሊት ጥራይ እዩ — ናይ ሓቂ ገንዘብ ኣይክፈልን።</p>
+          <p className="setup-note">{t.testNote}</p>
         </div>
 
         <div className="course-visual" aria-label="ስእሊ ትምህርቲ 80 ተባዕ ካህን">
@@ -67,33 +133,29 @@ export default function Home() {
 
       <section className="course-section" id="course">
         <div className="section-heading">
-          <p className="eyebrow">ትምህርትኻ</p>
-          <h2>9 ትምህርቲ። ናይ ህይወት ምሉእ ፍቓድ።</h2>
-          <p>ሓንሳብ ግዝኡ፡ ብመእተዊኹም እተዉ፡ ክትቅጽሉ ድሉዋት ምስ ኮንኩም ድማ ናብ ትምህርትኹም ተመለሱ።</p>
+          <p className="eyebrow">{t.yourCourse}</p>
+          <h2>{t.lifetime}</h2>
+          <p>{t.returnText}</p>
         </div>
 
         <article className="lesson-card">
           <div className="lesson-number">01</div>
           <div className="lesson-info">
-            <span>ትምህርቲ ቪድዮ</span>
-            <h3 lang="ti">ክብሪ ኣምላኽ (1ይ ክፋል)</h3>
+            <span>{t.videoLesson}</span>
+            <h3>{t.lessonTitle}</h3>
           </div>
           <div className="lesson-duration">59:26</div>
-          <div className="locked">ክሳዕ ዝግዛእ ዕጹው እዩ</div>
+          <div className="locked">{t.locked}</div>
         </article>
       </section>
 
       <section className="included-section" id="included">
         <div>
-          <p className="eyebrow">ቀሊልን ውሑስን</p>
-          <h2>ብምቾት ንምምሃር ዘድልየካ ኩሉ።</h2>
+          <p className="eyebrow">{t.easy}</p>
+          <h2>{t.everything}</h2>
         </div>
         <div className="benefit-grid">
-          {[
-            ["ውሑስ መእተዊ", "ዝተመዝገቡ ተማሃሮ ጥራይ ነቲ ትምህርቲ ክኸፍትዎ ይኽእሉ።"],
-            ["ኣብ ዝኾነ ቦታ ተማሃር", "ብስልክኻ፡ ታብሌትካ ወይ ኮምፒዩተርካ ተኸታተል።"],
-            ["ኣብ ዝደለኹሞ ግዜ ተመለሱ", "ንትምህርቲ ዘለኩም ፍቓድ ተዓቂቡ ክጸንሕ እዩ።"],
-          ].map(([title, text]) => (
+          {t.benefits.map(([title, text]) => (
             <article className="benefit" key={title}>
               <span className="check"><CheckIcon /></span>
               <h3>{title}</h3>
@@ -104,9 +166,9 @@ export default function Home() {
       </section>
 
       <footer>
-        <div className="brand"><span className="brand-mark">80</span><span>ተባዕ ካህን</span></div>
-        <p>ትምህርቲ ብኢንተርነት፡ ንኹሉ ቀሊል።</p>
-        <p>© 2026 80 ተባዕ ካህን</p>
+        <div className="brand"><span className="brand-mark">80</span><span>{t.brand}</span></div>
+        <p>{t.footer}</p>
+        <p>© 2026 80 {t.brand}</p>
       </footer>
     </main>
   );
