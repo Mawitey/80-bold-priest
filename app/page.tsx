@@ -132,13 +132,11 @@ export default function Home() {
           <div className="purchase-row">
             <div className="price"><small>{t.once}</small><strong>$500</strong></div>
             <a
-              className="primary-button"
-              href="https://buy.stripe.com/test_dRmcN550ubc5eLM1nG7bW00"
-              target="_blank"
-              rel="noreferrer"
-              aria-label="ናይዚ ትምህርቲ ናይ ፈተና ክፍሊት ክፈት"
+            className="primary-button"
+            href="/dashboard"
+            aria-label="ናይዚ ትምህርቲ ናይ ፈተና ክፍሊት ክፈት"
             >
-              {t.enroll}
+            {t.enroll}
             </a>
           </div>
           <p className="setup-note">{t.testNote}</p>
