@@ -2,11 +2,11 @@ version: 1
 frontend:
   phases:
     preBuild:
-  commands:
-    - env | grep -e COGNITO_ >> .env.production
-    - env | grep -e COURSE_API_URL -e MUX_ >> .env.production
-    - env | grep -e PAYPAL_ >> .env.production
-    - npm ci
+      commands:
+        - env | grep -e COGNITO_ >> .env.production
+        - env | grep -e COURSE_API_URL -e MUX_ >> .env.production
+        - env | grep -e PAYPAL_ >> .env.production
+        - npm ci
     build:
       commands:
         - npm run build
