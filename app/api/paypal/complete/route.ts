@@ -1,5 +1,5 @@
 import { NextRequest, NextResponse } from "next/server";
-import { getCourseConfig } from "@/lib/cognito";
+import { getCognitoConfig, getCourseConfig } from "@/lib/cognito";
 import { getCurrentUser } from "@/lib/current-user";
 import { paypalRequest } from "@/lib/paypal";
 
@@ -10,11 +10,11 @@ type PayPalOrder = {
 };
 
 function dashboardRedirect(
-  request: NextRequest,
+  siteUrl: string,
   payment: "success" | "cancelled" | "error",
 ) {
   return NextResponse.redirect(
-    new URL(`/dashboard?payment=${payment}`, request.url),
+    new URL(`/dashboard?payment=${payment}`, siteUrl),
     303,
   );
 }
@@ -33,11 +33,12 @@ async function getOrder(orderId: string) {
 }
 
 export async function GET(request: NextRequest) {
+  const siteUrl = new URL(getCognitoConfig().logoutUri).origin;
   const user = await getCurrentUser();
 
   if (!user) {
     return NextResponse.redirect(
-      new URL("/api/auth/login", request.url),
+      new URL("/api/auth/login", siteUrl),
       303,
     );
   }
@@ -46,7 +47,7 @@ export async function GET(request: NextRequest) {
 
   if (!orderId) {
     console.error("PayPal returned without an order ID");
-    return dashboardRedirect(request, "error");
+    return dashboardRedirect(siteUrl, "error");
   }
 
   try {
@@ -58,7 +59,7 @@ export async function GET(request: NextRequest) {
         message: payload.message,
       });
 
-      return dashboardRedirect(request, "error");
+      return dashboardRedirect(siteUrl, "error");
     }
 
     if (payload.status !== "COMPLETED") {
@@ -85,7 +86,7 @@ export async function GET(request: NextRequest) {
             message: capturePayload.message,
           });
 
-          return dashboardRedirect(request, "error");
+          return dashboardRedirect(siteUrl, "error");
         }
       } else {
         payload = capturePayload;
@@ -98,7 +99,7 @@ export async function GET(request: NextRequest) {
         status: payload.status,
       });
 
-      return dashboardRedirect(request, "error");
+      return dashboardRedirect(siteUrl, "error");
     }
 
     const course = getCourseConfig();
@@ -122,12 +123,12 @@ export async function GET(request: NextRequest) {
         response: (await accessResponse.text()).slice(0, 300),
       });
 
-      return dashboardRedirect(request, "error");
+      return dashboardRedirect(siteUrl, "error");
     }
 
-    return dashboardRedirect(request, "success");
+    return dashboardRedirect(siteUrl, "success");
   } catch (error) {
     console.error("Unable to complete PayPal checkout", error);
-    return dashboardRedirect(request, "error");
+    return dashboardRedirect(siteUrl, "error");
   }
 }
