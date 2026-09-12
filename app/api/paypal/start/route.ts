@@ -1,21 +1,22 @@
 import { randomUUID } from "node:crypto";
 import { NextRequest, NextResponse } from "next/server";
+import { getCognitoConfig } from "@/lib/cognito";
 import { getCurrentUser } from "@/lib/current-user";
 import { getPayPalConfig, paypalRequest } from "@/lib/paypal";
 
 export async function POST(request: NextRequest) {
+  const siteUrl = new URL(getCognitoConfig().logoutUri).origin;
   const user = await getCurrentUser();
 
   if (!user) {
     return NextResponse.redirect(
-      new URL("/api/auth/login", request.url),
+      new URL("/api/auth/login", siteUrl),
       303,
     );
   }
 
   try {
     const config = getPayPalConfig();
-    const siteUrl = request.nextUrl.origin;
 
     const response = await paypalRequest("/v2/checkout/orders", {
       method: "POST",
@@ -64,7 +65,7 @@ export async function POST(request: NextRequest) {
       });
 
       return NextResponse.redirect(
-        new URL("/dashboard?payment=error", request.url),
+        new URL("/dashboard?payment=error", siteUrl),
         303,
       );
     }
@@ -78,7 +79,7 @@ export async function POST(request: NextRequest) {
       console.error("PayPal approval URL was missing");
 
       return NextResponse.redirect(
-        new URL("/dashboard?payment=error", request.url),
+        new URL("/dashboard?payment=error", siteUrl),
         303,
       );
     }
@@ -88,7 +89,7 @@ export async function POST(request: NextRequest) {
     console.error("Unable to start PayPal checkout", error);
 
     return NextResponse.redirect(
-      new URL("/dashboard?payment=error", request.url),
+      new URL("/dashboard?payment=error", siteUrl),
       303,
     );
   }
