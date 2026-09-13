@@ -98,8 +98,15 @@ export default async function Dashboard() {
             </div>
           ) : (
             <div className="account-actions">
-              <a className="primary-button" href="/#course"><LocalizedText ti="ክፍሊት ወድእ" en="Complete payment" /></a>
-            </div>
+  <form action="/api/paypal/start" method="post">
+    <button className="primary-button" type="submit">
+      <LocalizedText
+        ti="ክፍሊት ወድእ"
+        en="Complete payment"
+      />
+    </button>
+  </form>
+</div>
           )}
         </section>
       </main>

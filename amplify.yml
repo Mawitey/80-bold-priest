@@ -5,6 +5,7 @@ frontend:
       commands:
         - env | grep -e COGNITO_ >> .env.production
         - env | grep -e COURSE_API_URL -e MUX_ >> .env.production
+        - env | grep -e PAYPAL_ >> .env.production
         - npm ci
     build:
       commands:
