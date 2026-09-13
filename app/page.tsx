@@ -107,10 +107,12 @@ export default function Home() {
         >
           {menuOpen ? t.close : t.menu}
         </button>
-        <nav id="main-navigation" className={menuOpen ? "mobile-open" : ""} aria-label="ቀንዲ መምርሒ">
-          <a href="#course" onClick={() => setMenuOpen(false)}>{t.courses}</a>
-          <a href="#included" onClick={() => setMenuOpen(false)}>{t.included}</a>
-          <a href="https://www.isgministry.com/" target="_blank" rel="noopener noreferrer" onClick={() => setMenuOpen(false)}>{t.isg}</a>
+        <nav id="main-navigation" className={menuOpen ? "mobile-open" : ""} aria-label="ISG Ministry navigation">
+          <a href="https://www.isgministry.com/" onClick={() => setMenuOpen(false)}>HOME</a>
+          <a href="https://www.isgministry.com/mission/" onClick={() => setMenuOpen(false)}>MISSION</a>
+          <a href="https://www.isgministry.com/partners/" onClick={() => setMenuOpen(false)}>PARTNERS</a>
+          <a href="https://www.isgministry.com/donate/" onClick={() => setMenuOpen(false)}>DONATE</a>
+          <a href="https://www.isgministry.com/contact/" onClick={() => setMenuOpen(false)}>CONTACT</a>
           <LanguageSwitcher />
           <a className="login-button" href="/api/auth/login">
             {t.login}
