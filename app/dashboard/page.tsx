@@ -78,7 +78,7 @@ export default async function Dashboard() {
       <main className="account-page">
         <header className="account-header">
           <a className="brand" href="/"><span className="brand-mark">80</span><span><LocalizedText ti="ተባዕ ካህን" en="Bold Priest" /></span></a>
-          <div className="account-nav"><a className="secondary-button" href="https://www.isgministry.com/" target="_blank" rel="noopener noreferrer"><LocalizedText ti="ISG Ministry" en="ISG Ministry" /></a><LanguageSwitcher /><a className="secondary-button" href="/api/auth/logout"><LocalizedText ti="ውጻእ" en="Log out" /></a></div>
+          <nav className="account-nav" aria-label="ISG Ministry navigation"><a className="isg-nav-link" href="https://www.isgministry.com/">HOME</a><a className="isg-nav-link" href="https://www.isgministry.com/mission/">MISSION</a><a className="isg-nav-link" href="https://www.isgministry.com/partners/">PARTNERS</a><a className="isg-nav-link" href="https://www.isgministry.com/donate/">DONATE</a><a className="isg-nav-link" href="https://www.isgministry.com/contact/">CONTACT</a><LanguageSwitcher /><a className="secondary-button" href="/api/auth/logout"><LocalizedText ti="ውጻእ" en="Log out" /></a></nav>
         </header>
         <section className="account-card">
           <p className="eyebrow"><LocalizedText ti="መቆጻጸሪ ገጽ ተማሃራይ" en="Student dashboard" /></p>
@@ -117,7 +117,7 @@ export default async function Dashboard() {
       <main className="account-page">
         <header className="account-header">
           <a className="brand" href="/"><span className="brand-mark">80</span><span><LocalizedText ti="ተባዕ ካህን" en="Bold Priest" /></span></a>
-          <div className="account-nav"><a className="secondary-button" href="https://www.isgministry.com/" target="_blank" rel="noopener noreferrer"><LocalizedText ti="ISG Ministry" en="ISG Ministry" /></a><LanguageSwitcher /><a className="secondary-button" href="/api/auth/logout"><LocalizedText ti="ውጻእ" en="Log out" /></a></div>
+          <nav className="account-nav" aria-label="ISG Ministry navigation"><a className="isg-nav-link" href="https://www.isgministry.com/">HOME</a><a className="isg-nav-link" href="https://www.isgministry.com/mission/">MISSION</a><a className="isg-nav-link" href="https://www.isgministry.com/partners/">PARTNERS</a><a className="isg-nav-link" href="https://www.isgministry.com/donate/">DONATE</a><a className="isg-nav-link" href="https://www.isgministry.com/contact/">CONTACT</a><LanguageSwitcher /><a className="secondary-button" href="/api/auth/logout"><LocalizedText ti="ውጻእ" en="Log out" /></a></nav>
         </header>
         <section className="account-card error-card">
           <p className="eyebrow"><LocalizedText ti="ግዝያዊ ጸገም" en="Temporary problem" /></p>
