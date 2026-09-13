@@ -29,6 +29,7 @@ export default function Home() {
     brand: "ተባዕ ካህን",
     courses: "ትምህርቲ",
     included: "እንታይ የጠቓልል",
+    isg: "ISG Ministry",
     login: "እቶ",
     menu: "ዝርዝር",
     close: "ዕጾ",
@@ -40,8 +41,8 @@ export default function Home() {
     lessons: "ትምህርቲ ቪድዮ",
     quality: "720p ልዑል ጽሬት",
     once: "ሓንሳብ ጥራይ ዝኽፈል",
-    enroll: "ንፈተና ተመዝገብ",
-    testNote: "እዚ ናይ ፈተና ክፍሊት ጥራይ እዩ — ናይ ሓቂ ገንዘብ ኣይክፈልን።",
+    enroll: "ሕጂ ተመዝገብ",
+    testNote: "እዚ ናይ ሓቂ $500 ናይ ሓንሳብ ክፍሊት እዩ፣ ብPayPal ብውሑስ መንገዲ ይኽፈል።",
     yourCourse: "ትምህርትኻ",
     lifetime: "ብዙሕ ትምህርቲ ቪድዮ። ናይ ህይወት ምሉእ ፍቓድ።",
     returnText: "ሓንሳብ ግዝኡ፡ ብመእተዊኹም እተዉ፡ ክትቅጽሉ ድሉዋት ምስ ኮንኩም ድማ ናብ ትምህርትኹም ተመለሱ።",
@@ -60,6 +61,7 @@ export default function Home() {
     brand: "Bold Priest",
     courses: "Courses",
     included: "What is included",
+    isg: "ISG Ministry",
     login: "Log in",
     menu: "Menu",
     close: "Close",
@@ -71,8 +73,8 @@ export default function Home() {
     lessons: "Video lessons",
     quality: "720p HD",
     once: "One-time payment",
-    enroll: "Test enrollment",
-    testNote: "This is a test payment only—no real money will be charged.",
+    enroll: "Enroll now",
+    testNote: "This is a real $500 one-time payment processed securely by PayPal.",
     yourCourse: "Your course",
     lifetime: "Multiple video lessons. Lifetime access.",
     returnText: "Purchase once, sign in securely, and return to your lessons whenever you are ready.",
@@ -108,6 +110,7 @@ export default function Home() {
         <nav id="main-navigation" className={menuOpen ? "mobile-open" : ""} aria-label="ቀንዲ መምርሒ">
           <a href="#course" onClick={() => setMenuOpen(false)}>{t.courses}</a>
           <a href="#included" onClick={() => setMenuOpen(false)}>{t.included}</a>
+          <a href="https://www.isgministry.com/" target="_blank" rel="noopener noreferrer" onClick={() => setMenuOpen(false)}>{t.isg}</a>
           <LanguageSwitcher />
           <a className="login-button" href="/api/auth/login">
             {t.login}
@@ -134,7 +137,7 @@ export default function Home() {
             <a
             className="primary-button"
             href="/dashboard"
-            aria-label="ናይዚ ትምህርቲ ናይ ፈተና ክፍሊት ክፈት"
+            aria-label="ነዚ ትምህርቲ ክፍሊት ክፈት"
             >
             {t.enroll}
             </a>
